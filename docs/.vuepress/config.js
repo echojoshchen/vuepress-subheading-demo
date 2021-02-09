@@ -29,77 +29,53 @@ module.exports = {
   themeConfig: {
     repo: '',
     editLinks: false,
-    docsDir: '',
     editLinkText: '',
     lastUpdated: false,
-    nav: [
-      {
-        text: 'Guide',
-        link: '/guide/',
-      },
+    sidebar: [
+      // SidebarItem
       {
         text: 'Config',
-        link: '/config/'
+        link: '/config/',
       },
+      // SidebarGroup
       {
+        isGroup: true,
         text: 'Test',
-        link: '/test/'
-      },
-      {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
-      }
-    ],
-    sidebar: {
-      '/heading/': [
-        {
-          title: 'Guide',
-          collapsable: false,
-          children: [
-            '',
-            'using-vue',
-          ]
-        }
-      ],
-      '/test/': [
-        {
-          title: 'Intro',
-          path: '/test/',
-          children: [
-            '/test/intro-1.md',
-            '/test/intro-2.md',
-          ]
-        },
-        {
-          title: 'Sections',
-          path: '/test/sections',
-          children: [{
-                  title: 'Section 1',
-                  path: '/test/section-1',
-                  children: [
-                      '/test/section-1-1.md',
-                      '/test/section-1-2.md'
-                  ]
+        children: [
+          '/test/intro-1.md',
+          '/test/intro-2.md',
+          {
+            isGroup: true,
+            text: 'Sections',
+            children: [
+              {
+                isGroup: true,
+                text: 'Section 1',
+                link: '/test/section-1.md',
+                children: [
+                    '/test/section-1-1.md',
+                    '/test/section-1-2.md'
+                ]
               },
               {
-                  title: 'Section 2',
-                  path: `/test/section-2`,
-                  children: [
-                      '/test/section-2-1.md',
-                      '/test/section-2-2.md',
-                  ]
+                isGroup: true,
+                text: 'Section 2',
+                link: `/test/section-2.md`,
+                children: [
+                    '/test/section-2-1.md',
+                    '/test/section-2-2.md',
+                ]
               }
-          ]
-        }
-      ],
-    }
+            ]
+          },
+        ],
+      },
+    ],
   },
 
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
   ]
 }
